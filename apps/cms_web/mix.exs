@@ -43,7 +43,7 @@ defmodule CmsWeb.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
       {:cms, in_umbrella: true},
-      {:cowboy, "~> 1.0"}
+      {:cowboy, "~> 1.0"},
       
       # Umbrella
       {:cms_db, in_umbrella: true}
