@@ -25,4 +25,22 @@ defmodule CmsDb.Accounting do
   end
   
   def delete_user(%User{} = user), do: Repo.delete(user)
+  
+  ## Authentication
+  
+  def authenticate(%{"name" => name, "password" => password}) do
+    user = get_user_by_name!(name)
+    
+    case check_password(user, password) do
+      true -> {:ok, user}
+      _ -> {:error, "Invalid username/password combination"}
+    end
+  end
+  
+  defp check_password(user, password) do
+    case user do
+      nil -> Comeonin.Bcrypt.dummy_checkpw()
+      _ -> Comeonin.Bcrypt.checkpw(password, user.password_hash)
+    end
+  end
 end

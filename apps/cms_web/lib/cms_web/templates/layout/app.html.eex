@@ -17,6 +17,7 @@
         <nav role="navigation">
           <ul class="nav nav-pills pull-right">
             <li><%= link("Home", to: "/") %></li>
+            <li><%= link("Sign in", to: "/sessions/new") %></li>
           </ul>
         </nav>
       </header>
