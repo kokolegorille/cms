@@ -44,6 +44,9 @@ defmodule CmsWeb.Mixfile do
       {:gettext, "~> 0.11"},
       {:cms, in_umbrella: true},
       {:cowboy, "~> 1.0"}
+      
+      # Umbrella
+      {:cms_db, in_umbrella: true}
     ]
   end
 
