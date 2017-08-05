@@ -19,9 +19,14 @@
           <ul class="nav nav-pills pull-right">
             <li><%= link("Home", to: "/") %></li>
             
-            <%= if Guardian.Plug.authenticated?(@conn) do %>
+            <%= if logged_in?(@conn) do %>
               <li><%= link("Users", to: "/users") %></li>
-              <li><%= link("Sign out", to: session_path(@conn, :delete, 1), method: :delete) %></li>
+              <li><%= 
+                link("Sign out", 
+                  to: session_path(@conn, :delete, current_user(@conn)), 
+                  data: [confirm: "Really?"],
+                  title: "signed in as #{current_user(@conn).name}",
+                  method: :delete) %></li>
             <% else %>
               <li><%= link("Sign in", to: "/sessions/new") %></li>
             <% end %>

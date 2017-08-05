@@ -40,4 +40,13 @@ defmodule CmsWeb.UserController do
   # def delete(conn, _params) do
   #
   # end
+  
+  # handle the case where no authenticated user
+  # was found
+  def unauthenticated(conn, params) do
+    conn
+    |> put_flash(:error, "Authentication required")
+    |> redirect(to: "/sessions/new")
+    |> halt()
+  end
 end
