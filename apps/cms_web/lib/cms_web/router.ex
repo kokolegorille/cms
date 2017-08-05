@@ -8,17 +8,25 @@ defmodule CmsWeb.Router do
     plug :protect_from_forgery
     plug :put_secure_browser_headers
   end
+  
+  pipeline :browser_session do
+    plug Guardian.Plug.VerifySession
+    plug Guardian.Plug.LoadResource
+  end
 
   pipeline :api do
     plug :accepts, ["json"]
   end
 
   scope "/", CmsWeb do
-    pipe_through :browser # Use the default browser stack
-
-    get "/", PageController, :index
+    pipe_through [:browser, :browser_session]
     
+    get "/", PageController, :index
     resources "/sessions", SessionController, only: [:new, :create, :delete]
+    
+    # pipe_through :browser_session
+    
+    resources "/users", UserController
   end
 
   # Other scopes may use custom stacks.

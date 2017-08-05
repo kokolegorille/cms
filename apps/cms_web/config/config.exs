@@ -25,6 +25,19 @@ config :logger, :console,
 config :cms_web, :generators,
   context_app: :cms
 
+# Guardian
+config :guardian, Guardian,
+  allowed_algos: ["HS512"], # optional
+  verify_module: Guardian.JWT,  # optional
+  issuer: "CmsWeb",
+  ttl: { 7, :days },
+  allowed_drift: 2000,
+  verify_issuer: true, # optional
+  # generated with 
+  # $ mix phx.gen.secret
+  secret_key: "9clB3mXxHdd8MuHAnR8cLS4V8BIQ7nVW/AoJhri5P2O9fCjA+b//EL/C7xhcpxfu",
+  serializer: CmsWeb.GuardianSerializer
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
