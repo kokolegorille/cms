@@ -21,4 +21,15 @@ defmodule CmsWeb.Gettext do
   See the [Gettext Docs](https://hexdocs.pm/gettext) for detailed usage.
   """
   use Gettext, otp_app: :cms_web
+  
+  # http://code.parent.co/practical-i18n-with-phoenix-and-elixir/
+  # def supported_locales do
+  #   known = Gettext.known_locales(CmsWeb.Gettext)
+  #   allowed = config[:locales]
+  #
+  #   MapSet.intersection(Enum.into(known, MapSet.new), Enum.into(allowed, MapSet.new))
+  #   |> MapSet.to_list
+  # end
+  #
+  # defp config, do: Application.get_env(:cms_web, __MODULE__)
 end

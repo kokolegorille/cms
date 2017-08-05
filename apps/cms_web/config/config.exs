@@ -38,6 +38,10 @@ config :guardian, Guardian,
   secret_key: "9clB3mXxHdd8MuHAnR8cLS4V8BIQ7nVW/AoJhri5P2O9fCjA+b//EL/C7xhcpxfu",
   serializer: CmsWeb.GuardianSerializer
 
+# # Gettext
+# config :cms_web, CmsWeb.Gettext,
+#   locales: ~w(en fr)
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
