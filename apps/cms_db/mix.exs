@@ -39,6 +39,10 @@ defmodule CmsDb.Mixfile do
       {:comeonin, "~> 4.0"},
       {:bcrypt_elixir, "~> 0.12.0"},
       {:ecto, "~> 2.1"},
+      
+      # https://github.com/phoenixframework/phoenix_html/issues/85
+      # needed to implement protocol Phoenix.HTML.FormData
+      {:phoenix_ecto, "~> 3.0"},
       {:postgrex, "~> 0.13"}
     ]
   end

@@ -26,6 +26,10 @@ defmodule CmsDb.Accounting do
   
   def delete_user(%User{} = user), do: Repo.delete(user)
   
+  def change_user(%User{} = user) do
+    User.changeset(user, %{})
+  end
+  
   ## Authentication
   
   def authenticate(%{"name" => name, "password" => password}) do

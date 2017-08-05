@@ -28,7 +28,7 @@
                   title: "signed in as #{current_user(@conn).name}",
                   method: :delete) %></li>
             <% else %>
-              <li><%= link("Sign in", to: "/sessions/new") %></li>
+              <li><%= link("Sign in", to: session_path(@conn, :new)) %></li>
             <% end %>
           </ul>
         </nav>
