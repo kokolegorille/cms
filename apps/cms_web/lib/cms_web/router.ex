@@ -8,7 +8,7 @@ defmodule CmsWeb.Router do
     plug :protect_from_forgery
     plug :put_secure_browser_headers
     
-    plug CmsWeb.Locale
+    plug CmsWeb.Locale, "fr"
   end
   
   pipeline :browser_session do
@@ -24,6 +24,9 @@ defmodule CmsWeb.Router do
     pipe_through [:browser, :browser_session]
     
     get "/", PageController, :index
+    
+    # get "/sign_in", SessionController, :new
+    # delete "/sign_out", SessionController, :delete
     resources "/sessions", SessionController, only: [:new, :create, :delete]
     
     # pipe_through :browser_session

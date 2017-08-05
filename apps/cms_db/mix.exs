@@ -42,7 +42,7 @@ defmodule CmsDb.Mixfile do
       
       # https://github.com/phoenixframework/phoenix_html/issues/85
       # needed to implement protocol Phoenix.HTML.FormData
-      {:phoenix_ecto, "~> 3.0"},
+      {:phoenix_ecto, "~> 3.2"},
       {:postgrex, "~> 0.13"}
     ]
   end

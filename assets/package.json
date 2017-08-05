@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "watch": "webpack --watch --color",
     "build:dev": "webpack --progress --colors --watch",
     "build:prod": "webpack --progress --colors -p --watch",
     "lint": "eslint src"
