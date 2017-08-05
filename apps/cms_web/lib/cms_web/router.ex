@@ -25,8 +25,8 @@ defmodule CmsWeb.Router do
     
     get "/", PageController, :index
     
-    # get "/sign_in", SessionController, :new
-    # delete "/sign_out", SessionController, :delete
+    get "/sign_in", SessionController, :new, as: :sign_in
+    delete "/sign_out/:id", SessionController, :delete, as: :sign_out
     resources "/sessions", SessionController, only: [:new, :create, :delete]
     
     # pipe_through :browser_session

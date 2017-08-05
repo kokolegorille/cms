@@ -23,12 +23,12 @@
               <li><%= link(gettext("Users"), to: "/users") %></li>
               <li><%= 
                 link(gettext("Sign out"), 
-                  to: session_path(@conn, :delete, current_user(@conn)), 
+                  to: sign_out_path(@conn, :delete, current_user(@conn)), 
                   data: [confirm: "Really?"],
                   title: "signed in as #{current_user(@conn).name}",
                   method: :delete) %></li>
             <% else %>
-              <li><%= link(gettext("Sign in"), to: session_path(@conn, :new)) %></li>
+              <li><%= link(gettext("Sign in"), to: sign_in_path(@conn, :new)) %></li>
             <% end %>
           </ul>
         </nav>
