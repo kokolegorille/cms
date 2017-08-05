@@ -20,12 +20,12 @@ defmodule CmsWeb.SessionController do
         |> Guardian.Plug.sign_in(user)
         |> redirect(to: page_path(conn, :index))
       {:error, _reason} ->
-        render_error(conn)
+        failed_sign_in(conn)
     end
   end
   
   def create(conn, _params) do
-    render_error(conn)
+    failed_sign_in(conn)
   end
   
   def delete(conn, _params) do
@@ -37,7 +37,7 @@ defmodule CmsWeb.SessionController do
   
   # PRIVATE
   
-  defp render_error(conn) do
+  defp failed_sign_in(conn) do
     conn
     |> put_flash(:error, gettext("Invalid username/password combination."))
     |> render("new.html")

@@ -2,12 +2,14 @@ defmodule CmsDb.Accounting.User do
   use Ecto.Schema
   import Ecto.Changeset
   alias __MODULE__
+  alias CmsDb.Blogging.Post
   
   schema "users" do
     field :name, :string
     field :email, :string
     field :password, :string, virtual: true
     field :password_hash, :string
+    has_many :posts, Post
     
     timestamps()
   end
