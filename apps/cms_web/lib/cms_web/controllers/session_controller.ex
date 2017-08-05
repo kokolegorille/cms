@@ -19,17 +19,13 @@ defmodule CmsWeb.SessionController do
         |> put_flash(:info, "Welcome back #{user.name}!")
         |> Guardian.Plug.sign_in(user)
         |> redirect(to: page_path(conn, :index))
-      {:error, reason} ->
-        conn
-        |> put_flash(:error, reason)
-        |> render("new.html")
+      {:error, _reason} ->
+        render_error(conn)
     end
   end
   
   def create(conn, _params) do
-    conn
-    |> put_flash(:error, "Invalid username/password combination")
-    |> render("new.html")
+    render_error(conn)
   end
   
   def delete(conn, _params) do
@@ -37,5 +33,13 @@ defmodule CmsWeb.SessionController do
     |> Guardian.Plug.sign_out
     |> put_flash(:info, gettext("Logged out successfully."))
     |> redirect(to: page_path(conn, :index))
+  end
+  
+  # PRIVATE
+  
+  defp render_error(conn) do
+    conn
+    |> put_flash(:error, "Invalid username/password combination.")
+    |> render("new.html")
   end
 end
