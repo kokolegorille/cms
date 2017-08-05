@@ -28,7 +28,7 @@ defmodule CmsWeb.SessionController do
   def delete(conn, _params) do
     conn
     |> Guardian.Plug.sign_out
-    |> put_flash(:info, "Logged out successfully.")
+    |> put_flash(:info, gettext("Logged out successfully."))
     |> redirect(to: page_path(conn, :index))
   end
 end

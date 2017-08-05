@@ -19,6 +19,8 @@ msgid "Home"
 msgstr "Accueil"
 
 #: lib/cms_web/templates/layout/app.html.eex:31
+#: lib/cms_web/templates/session/new.html.eex:2
+#: lib/cms_web/templates/session/new.html.eex:11
 msgid "Sign in"
 msgstr "Connexion"
 
@@ -29,3 +31,15 @@ msgstr "Déconnexion"
 #: lib/cms_web/templates/layout/app.html.eex:23
 msgid "Users"
 msgstr "Utilisateurs"
+
+#: lib/cms_web/templates/session/new.html.eex:9
+msgid "Password"
+msgstr "Mot de passe"
+
+#: lib/cms_web/templates/session/new.html.eex:6
+msgid "Username"
+msgstr "Nom"
+
+#: lib/cms_web/controllers/session_controller.ex:31
+msgid "Logged out successfully."
+msgstr "Vous êtes maintenant déconnecté."

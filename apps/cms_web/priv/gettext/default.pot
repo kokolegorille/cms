@@ -19,6 +19,8 @@ msgid "Home"
 msgstr ""
 
 #: lib/cms_web/templates/layout/app.html.eex:31
+#: lib/cms_web/templates/session/new.html.eex:2
+#: lib/cms_web/templates/session/new.html.eex:11
 msgid "Sign in"
 msgstr ""
 
@@ -28,4 +30,16 @@ msgstr ""
 
 #: lib/cms_web/templates/layout/app.html.eex:23
 msgid "Users"
+msgstr ""
+
+#: lib/cms_web/templates/session/new.html.eex:9
+msgid "Password"
+msgstr ""
+
+#: lib/cms_web/templates/session/new.html.eex:6
+msgid "Username"
+msgstr ""
+
+#: lib/cms_web/controllers/session_controller.ex:31
+msgid "Logged out successfully."
 msgstr ""

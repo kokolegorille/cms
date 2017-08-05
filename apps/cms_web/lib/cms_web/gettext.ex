@@ -22,10 +22,10 @@ defmodule CmsWeb.Gettext do
   """
   use Gettext, otp_app: :cms_web
   
-  # http://code.parent.co/practical-i18n-with-phoenix-and-elixir/
+  # # http://code.parent.co/practical-i18n-with-phoenix-and-elixir/
   # def supported_locales do
   #   known = Gettext.known_locales(CmsWeb.Gettext)
-  #   allowed = config[:locales]
+  #   allowed = config()[:locales]
   #
   #   MapSet.intersection(Enum.into(known, MapSet.new), Enum.into(allowed, MapSet.new))
   #   |> MapSet.to_list
