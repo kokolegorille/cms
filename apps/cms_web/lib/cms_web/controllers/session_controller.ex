@@ -11,8 +11,9 @@ defmodule CmsWeb.SessionController do
     render conn, "new.html"
   end
   
-  def create(conn, %{"session" => session_params}) do
-    case Accounting.authenticate(session_params) do
+  def create(conn, %{"session" => %{"name" => name, "password" => password}}) 
+    when not is_nil(name) and not is_nil(password) do
+    case Accounting.authenticate(%{"name" => name, "password" => password}) do
       {:ok, user} ->
         conn
         |> put_flash(:info, "Welcome back #{user.name}!")
@@ -23,6 +24,12 @@ defmodule CmsWeb.SessionController do
         |> put_flash(:error, reason)
         |> render("new.html")
     end
+  end
+  
+  def create(conn, _params) do
+    conn
+    |> put_flash(:error, "Invalid username/password combination")
+    |> render("new.html")
   end
   
   def delete(conn, _params) do
