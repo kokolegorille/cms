@@ -6,15 +6,9 @@ defmodule CmsWeb.Locale do
   
   def init(default), do: default
 
-  def call(%Plug.Conn{params: %{"locale" => loc}} = conn, _opts) 
-    when loc in @locales do
-      
-    case loc || get_session(conn, :locale) do
-      nil     -> conn
-      locale  ->
-        set_locale(conn, locale)
-    end
-  end
+  def call(%Plug.Conn{params: %{"locale" => locale}} = conn, _opts) 
+    when locale in @locales, 
+    do: set_locale(conn, locale)
   
   def call(conn, _opts) do
     locale = get_session(conn, :locale) || @default_locale
