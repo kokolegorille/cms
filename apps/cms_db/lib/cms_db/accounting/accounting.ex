@@ -37,7 +37,7 @@ defmodule CmsDb.Accounting do
     
     case check_password(user, password) do
       true -> {:ok, user}
-      _ -> {:error, "Invalid username/password combination"}
+      _ -> {:error, "Invalid username/password combination."}
     end
   end
   
