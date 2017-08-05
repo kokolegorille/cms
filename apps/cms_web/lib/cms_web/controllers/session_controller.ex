@@ -16,7 +16,7 @@ defmodule CmsWeb.SessionController do
     case Accounting.authenticate(%{"name" => name, "password" => password}) do
       {:ok, user} ->
         conn
-        |> put_flash(:info, "Welcome back #{user.name}!")
+        |> put_flash(:info, gettext("Welcome back %{name}!", name: user.name))
         |> Guardian.Plug.sign_in(user)
         |> redirect(to: page_path(conn, :index))
       {:error, _reason} ->
@@ -39,7 +39,7 @@ defmodule CmsWeb.SessionController do
   
   defp render_error(conn) do
     conn
-    |> put_flash(:error, "Invalid username/password combination.")
+    |> put_flash(:error, gettext("Invalid username/password combination."))
     |> render("new.html")
   end
 end

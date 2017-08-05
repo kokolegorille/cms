@@ -40,6 +40,30 @@ msgstr "Mot de passe"
 msgid "Username"
 msgstr "Nom"
 
-#: lib/cms_web/controllers/session_controller.ex:31
+#: lib/cms_web/controllers/session_controller.ex:34
 msgid "Logged out successfully."
 msgstr "Vous êtes maintenant déconnecté."
+
+#: lib/cms_web/controllers/session_controller.ex:42
+msgid "Invalid username/password combination."
+msgstr "Combinaison nom/mot de passe invalide"
+
+#: lib/cms_web/controllers/user_controller.ex:28
+msgid "User created successfully."
+msgstr "Utilisateur créé avec succès."
+
+#: lib/cms_web/controllers/user_controller.ex:59
+msgid "User deleted successfully."
+msgstr "Utilisateur supprimé avec succès."
+
+#: lib/cms_web/controllers/user_controller.ex:47
+msgid "User updated successfully."
+msgstr "Utilisateur mis à jour avec succès."
+
+#: lib/cms_web/controllers/session_controller.ex:19
+msgid "Welcome back %{name}!"
+msgstr "Bienvenue %{name}!"
+
+#: lib/cms_web/controllers/user_controller.ex:67
+msgid "You must be signed in to access that page."
+msgstr "Vous devez être connecté pour accéder à la page."

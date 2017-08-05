@@ -25,7 +25,7 @@ defmodule CmsWeb.UserController do
     case Accounting.create_user(user_params) do
       {:ok, user} ->
         conn
-        |> put_flash(:info, "User created successfully.")
+        |> put_flash(:info, gettext("User created successfully."))
         |> redirect(to: user_path(conn, :show, user))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
@@ -44,7 +44,7 @@ defmodule CmsWeb.UserController do
     case Accounting.update_user(user, user_params) do
       {:ok, user} ->
         conn
-        |> put_flash(:info, "User updated successfully.")
+        |> put_flash(:info, gettext("User updated successfully."))
         |> redirect(to: user_path(conn, :show, user))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", user: user, changeset: changeset)
@@ -56,7 +56,7 @@ defmodule CmsWeb.UserController do
     {:ok, _user} = Accounting.delete_user(user)
 
     conn
-    |> put_flash(:info, "User deleted successfully.")
+    |> put_flash(:info, gettext("User deleted successfully."))
     |> redirect(to: user_path(conn, :index))
   end
     
@@ -64,7 +64,7 @@ defmodule CmsWeb.UserController do
   # was found
   def unauthenticated(conn, _params) do
     conn
-    |> put_flash(:error, "You must be signed in to access that page.")
+    |> put_flash(:error, gettext("You must be signed in to access that page."))
     |> redirect(to: sign_in_path(conn, :new))
     |> halt()
   end

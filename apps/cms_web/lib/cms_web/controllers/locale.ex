@@ -2,7 +2,7 @@ defmodule CmsWeb.Locale do
   import Plug.Conn
   
   @locales ["en", "fr"]
-  @default_locale "fr"
+  @default_locale "en"
   
   def init(default), do: default
 
