@@ -19,7 +19,7 @@ defmodule CmsWeb.Router do
   pipeline :api do
     plug :accepts, ["json"]
   end
-
+  
   scope "/", CmsWeb do
     pipe_through [:browser, :browser_session]
     
@@ -29,11 +29,9 @@ defmodule CmsWeb.Router do
     delete "/sign_out/:id", SessionController, :delete, as: :sign_out
     resources "/sessions", SessionController, only: [:new, :create, :delete]
     
-    # pipe_through :browser_session
-    
     resources "/users", UserController
   end
-
+  
   # Other scopes may use custom stacks.
   # scope "/api", CmsWeb do
   #   pipe_through :api
