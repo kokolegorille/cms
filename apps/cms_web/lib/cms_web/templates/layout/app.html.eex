@@ -30,6 +30,9 @@
             <% else %>
               <li><%= link(gettext("Sign in"), to: sign_in_path(@conn, :new)) %></li>
             <% end %>
+            
+            <li><a href="?locale=en">en</a></li>
+            <li><a href="?locale=fr">fr</a></li>
           </ul>
         </nav>
       </header>

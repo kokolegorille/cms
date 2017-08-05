@@ -12,7 +12,7 @@ defmodule CmsWeb.UserController do
   end
   
   def show(conn, %{"id" => id}) do
-    user = Accounting.get_user!(id)
+    user = Accounting.get_user(id)
     render(conn, "show.html", user: user)
   end
   
@@ -33,13 +33,13 @@ defmodule CmsWeb.UserController do
   end
   
   def edit(conn, %{"id" => id}) do
-    user = Accounting.get_user!(id)
+    user = Accounting.get_user(id)
     changeset = Accounting.change_user(user)
     render(conn, "edit.html", user: user, changeset: changeset)
   end
 
   def update(conn, %{"id" => id, "user" => user_params}) do
-    user = Accounting.get_user!(id)
+    user = Accounting.get_user(id)
 
     case Accounting.update_user(user, user_params) do
       {:ok, user} ->
@@ -52,7 +52,7 @@ defmodule CmsWeb.UserController do
   end
 
   def delete(conn, %{"id" => id}) do
-    user = Accounting.get_user!(id)
+    user = Accounting.get_user(id)
     {:ok, _user} = Accounting.delete_user(user)
 
     conn
@@ -64,8 +64,8 @@ defmodule CmsWeb.UserController do
   # was found
   def unauthenticated(conn, _params) do
     conn
-    |> put_flash(:error, "Authentication required.")
-    |> redirect(to: "/sessions/new")
+    |> put_flash(:error, "You must be signed in to access that page.")
+    |> redirect(to: sign_in_path(conn, :new))
     |> halt()
   end
 end

@@ -8,9 +8,9 @@ defmodule CmsDb.Accounting do
   
   def list_users, do: Repo.all(User)
   
-  def get_user!(id), do: Repo.get!(User, id)
+  def get_user(id), do: Repo.get(User, id)
   
-  def get_user_by_name!(name), do: Repo.get_by(User, name: name)
+  def get_user_by_name(name), do: Repo.get_by(User, name: name)
   
   def create_user(attrs \\ %{}) do
     %User{}
@@ -33,7 +33,7 @@ defmodule CmsDb.Accounting do
   ## Authentication
   
   def authenticate(%{"name" => name, "password" => password}) do
-    user = get_user_by_name!(name)
+    user = get_user_by_name(name)
     
     case check_password(user, password) do
       true -> {:ok, user}

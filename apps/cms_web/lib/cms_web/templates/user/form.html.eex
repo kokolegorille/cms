@@ -15,10 +15,12 @@
     <%= error_tag f, :email %>
   </div>
   
-  <div class="form-group">
-    <%= password_input f, :password, placeholder: "Password" %>
-    <%= error_tag f, :password %>
-  </div>
+  <%= if @action === "/users" do %>  
+    <div class="form-group">
+      <%= password_input f, :password, placeholder: "Password" %>
+      <%= error_tag f, :password %>
+    </div>
+  <% end %>
   
   <div class="form-group">
     <%= submit "Submit" %>
