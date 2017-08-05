@@ -1,7 +1,7 @@
 use Mix.Config
 
 # Configure your database
-config :dummy, CmsDb.Repo,
+config :cms_db, CmsDb.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
   password: "postgres",
