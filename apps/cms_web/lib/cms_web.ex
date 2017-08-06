@@ -23,6 +23,8 @@ defmodule CmsWeb do
       import Plug.Conn
       import CmsWeb.Router.Helpers
       import CmsWeb.Gettext
+      #
+      import CmsWeb.SharedHelpers
     end
   end
 
@@ -40,6 +42,8 @@ defmodule CmsWeb do
       import CmsWeb.Router.Helpers
       import CmsWeb.ErrorHelpers
       import CmsWeb.Gettext
+      #
+      import CmsWeb.SharedHelpers
     end
   end
 

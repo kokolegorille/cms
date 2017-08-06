@@ -30,6 +30,7 @@ defmodule CmsWeb.Router do
     resources "/sessions", SessionController, only: [:new, :create, :delete]
     
     resources "/users", UserController
+    resources "/posts", PostController
   end
   
   # Other scopes may use custom stacks.

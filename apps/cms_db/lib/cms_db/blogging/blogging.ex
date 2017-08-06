@@ -4,20 +4,18 @@ defmodule CmsDb.Blogging do
   alias CmsDb.Repo
   alias CmsDb.Blogging.Post
 
-  # ## User
-  #
-  # def list_users, do: Repo.all(User)
-  #
-  # def get_user(id), do: Repo.get(User, id)
-  #
-  # def get_user_by_name(name), do: Repo.get_by(User, name: name)
-  #
-  # def create_user(attrs \\ %{}) do
-  #   %User{}
-  #   |> User.registration_changeset(attrs)
-  #   |> Repo.insert()
-  # end
-  #
+  ## Post
+
+  def list_posts, do: Repo.all(Post)
+
+  def get_post(id), do: Repo.get(Post, id)
+  
+  def create_post(attrs \\ %{}) do
+    %Post{}
+    |> Post.changeset(attrs)
+    |> Repo.insert()
+  end
+
   # def update_user(%User{} = user, attrs) do
   #   user
   #   |> User.changeset(attrs)

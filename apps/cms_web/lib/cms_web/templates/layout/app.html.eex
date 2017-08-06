@@ -21,6 +21,7 @@
             
             <%= if logged_in?(@conn) do %>
               <li><%= link(gettext("Users"), to: "/users") %></li>
+              <li><%= link(gettext("Posts"), to: "/posts") %></li>
               <li><%= 
                 link(gettext("Sign out"), 
                   to: sign_out_path(@conn, :delete, current_user(@conn)), 
