@@ -5,44 +5,34 @@ defmodule CmsDb.Blogging do
   alias CmsDb.Blogging.Post
 
   ## Post
-
-  def list_posts, do: Repo.all(Post)
-
-  def get_post(id), do: Repo.get(Post, id)
   
-  def create_post(attrs \\ %{}) do
-    %Post{}
-    |> Post.changeset(attrs)
+  def list_posts(user), do: Repo.all(user_posts(user))
+  
+  def get_post(user, id), do: Repo.get(user_posts(user), id)
+  
+  def create_post(user, attrs \\ %{}) do
+    build_post(user, attrs)
     |> Repo.insert()
   end
 
-  # def update_user(%User{} = user, attrs) do
-  #   user
-  #   |> User.changeset(attrs)
-  #   |> Repo.update()
-  # end
-  #
-  # def delete_user(%User{} = user), do: Repo.delete(user)
-  #
-  # def change_user(%User{} = user) do
-  #   User.changeset(user, %{})
-  # end
-  #
-  # ## Authentication
-  #
-  # def authenticate(%{"name" => name, "password" => password}) do
-  #   user = get_user_by_name(name)
-  #
-  #   case check_password(user, password) do
-  #     true -> {:ok, user}
-  #     _ -> {:error, "Invalid username/password combination."}
-  #   end
-  # end
-  #
-  # defp check_password(user, password) do
-  #   case user do
-  #     nil -> Comeonin.Bcrypt.dummy_checkpw()
-  #     _ -> Comeonin.Bcrypt.checkpw(password, user.password_hash)
-  #   end
-  # end
+  def update_post(%Post{} = post, attrs) do
+    change_post(post, attrs)
+    |> Repo.update()
+  end
+  
+  def delete_post(%Post{} = post), do: Repo.delete(post)
+
+  def build_post(user, attrs) do
+    user
+    |> Ecto.build_assoc(:posts)
+    |> Post.changeset(attrs)
+  end
+
+  def change_post(%Post{} = post, attrs \\ %{}) do
+    Post.changeset(post, attrs)
+  end
+  
+  # PRIVATE
+  
+  defp user_posts(user), do: Ecto.assoc(user, :posts)
 end
