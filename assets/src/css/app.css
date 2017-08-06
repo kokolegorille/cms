@@ -5,15 +5,6 @@ nav ul {
   list-style: none;
   padding: 0;
 }
-
-nav ul li {
-  padding-right: 1em;
-}
-
-nav ul li a.active {
-  font-weight: bold;
-}
-
-nav ul li a {
-  text-decoration: none;
-}
+nav ul li { padding-right: 1em; }
+nav ul li a.active { font-weight: bold; }
+nav ul li a { text-decoration: none; }

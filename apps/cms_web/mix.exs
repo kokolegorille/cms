@@ -47,6 +47,7 @@ defmodule CmsWeb.Mixfile do
       
       # Additional
       {:guardian, "~> 0.14"},
+      {:earmark, "~> 1.2"},
       
       # Umbrella
       {:cms_db, in_umbrella: true}
