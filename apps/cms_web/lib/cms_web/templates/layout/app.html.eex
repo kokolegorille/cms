@@ -26,7 +26,6 @@
                 link(gettext("Sign out"), 
                   to: sign_out_path(@conn, :delete, current_user(@conn)), 
                   data: [confirm: "Really?"],
-                  title: "signed in as #{current_user(@conn).name}",
                   method: :delete) %></li>
             <% else %>
               <li><%= link(gettext("Sign in"), to: sign_in_path(@conn, :new)) %></li>
@@ -36,6 +35,9 @@
             <li><a href="?locale=fr">fr</a></li>
           </ul>
         </nav>
+        <%= if logged_in?(@conn) do %>
+          <p>signed in as <%= current_user(@conn).name %></p>
+        <% end %>
       </header>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
