@@ -6,7 +6,7 @@
   <% end %>
 
   <div class="form-group">
-    <%= text_input f, :name, placeholder: "Username" %>
+    <%= text_input f, :name, placeholder: "Username", autofocus: true %>
     <%= error_tag f, :name %>
   </div>
 
