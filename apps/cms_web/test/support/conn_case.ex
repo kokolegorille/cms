@@ -27,8 +27,15 @@ defmodule CmsWeb.ConnCase do
   end
 
 
-  setup _tags do
+  # setup _tags do
+  #   {:ok, conn: Phoenix.ConnTest.build_conn()}
+  # end
+
+  setup tags do
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(CmsDb.Repo)
+    unless tags[:async] do
+      Ecto.Adapters.SQL.Sandbox.mode(CmsDb.Repo, {:shared, self()})
+    end
     {:ok, conn: Phoenix.ConnTest.build_conn()}
   end
-
 end
